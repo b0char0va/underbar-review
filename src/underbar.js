@@ -45,7 +45,7 @@
     } else if (!n) {
       return array[array.length - 1];
     } else {
-      var index = array.length-n;
+      var index = array.length - n;
       return array.slice(index);
     }
   };
@@ -56,11 +56,11 @@
   // Note: _.each does not have a return value, but rather simply runs the
   // iterator function over each item in the input collection.
   _.each = function(collection, iterator) {
-      if (Array.isArray(collection)) {
-            for (var i = 0; i < collection.length; i++) {
+    if (Array.isArray(collection)) {
+      for (var i = 0; i < collection.length; i++) {
         iterator(collection[i], i, collection);
       }
-    }else {
+    } else {
       for (var key in collection) {
         iterator(collection[key], key, collection);
       }
@@ -88,7 +88,7 @@
   _.filter = function(collection, test) {
     var result = [];
     for ( var i = 0; i < collection.length; i++) {
-      if(test(collection[i])) {
+      if (test(collection[i])) {
         result.push(collection[i]);
       }
     }
@@ -99,7 +99,7 @@
   _.reject = function(collection, test) {
     // TIP: see if you can re-use _.filter() here, without simply
     // copying code in and modifying it
-    return _.filter(collection, function(item) { return !test(item);} );
+    return _.filter(collection, function(item) { return !test(item); });
   };
 
   // Produce a duplicate-free version of the array.
@@ -110,17 +110,17 @@
     if (iterator === undefined) {
       iterator = _.identity;
     }
-    if(!isSorted) {
+    if (!isSorted) {
       isSorted = false;
     }
 
     for (var i = 0; i < array.length; i++) {
-      if(isSorted) {
+      if (isSorted) {
         if (_.indexOf(resultXform, iterator(array[i])) !== -1) {
-         return result;
+          return result;
         } else {
-         result.push(array[i]);
-         resultXform.push(iterator(array[i]));
+          result.push(array[i]);
+          resultXform.push(iterator(array[i]));
         }
       } else {
         if (_.indexOf(resultXform, iterator(array[i])) === -1) {
